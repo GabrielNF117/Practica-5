@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Log Form</h1>
+        <br/>
+        <form action="#" th:action="@{/logs/addlog}" th:object="${logModel}" method="post">
+            <input type="hidden" th:field="*{id}"></input>
+            Date: <input type="date" class="form-control" th:field="*{date}" th:value="${date}"></input>
+            <br/>
+            Details: <input type="text" class="form-control" th:field="*{details}" th:value="${details}"></input>
+            <br/>
+            Username: <input type="text" class="form-control" th:field="*{username}" th:value="${username}"></input>
+            <br/>
+            URL: <input type="text" class="form-control" th:field="*{url}" th:value="${url}"></input>
+            <br/>
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Accept
+            </button>
+
+        </form>
+        <a href="#" th:href="@{/logs/cancel}">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+            </button>
+        </a>
+    </div>
+</div>
+
+
+</body>
+</html>

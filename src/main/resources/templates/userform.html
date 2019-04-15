@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>User Form</h1>
+        <br/>
+        <form action="#" th:action="@{/users/adduser}" th:object="${userModel}" method="post">
+
+            Username: <input type="text" class="form-control" th:field="*{username}" th:value="${username}"></input>
+            <br/>
+            Password: <input type="text" class="form-control" th:field="*{password}" th:value="${password}"></input>
+            <br/>
+            Enabled:
+            <fieldset>
+                <label>
+                    <input type="radio" name="desicion" class="form-control" th:field="*{enabled}" th:value="true">Enabled
+                </label>
+                <label>
+                    <input type="radio" name="desicion" class="form-control" th:field="*{enabled}" th:value="false">Disabled
+                </label>
+            </fieldset>
+            <br/>
+            <!--UserRoles: <input type="text" class="form-control" th:field="*{userRoles}" th:value="${userRoles}"></input>
+            <br/>-->
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Accept
+            </button>
+
+        </form>
+        <a href="#" th:href="@{/users/cancel}">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+            </button>
+        </a>
+    </div>
+</div>
+
+
+
+</body>
+</html>
